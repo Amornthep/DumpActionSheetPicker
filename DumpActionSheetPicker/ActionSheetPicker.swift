@@ -14,7 +14,7 @@ open class ActionSheetPicker: NSObject {
 
     public init(title:String,items:NSArray,target:UIViewController,doneClick: @escaping (Int,Int) -> ()) {
         super.init()
-        let storyboard: UIStoryboard = UIStoryboard(name: "ActionSheetPicker", bundle: Bundle(for: ActionSheetPicker.self))
+        let storyboard: UIStoryboard = UIStoryboard(name: "Storyboard", bundle: Bundle(for: ActionSheetPickerViewController.self))
         let actionSheetVC_ = storyboard.instantiateViewController(withIdentifier: "ActionSheetPickerViewController") as! ActionSheetPickerViewController
         self.actionSheetVC = actionSheetVC_
         self.actionSheetVC.setData(items: items, title: title)
