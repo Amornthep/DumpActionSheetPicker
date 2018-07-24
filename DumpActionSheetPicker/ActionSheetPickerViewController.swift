@@ -128,7 +128,7 @@ extension ActionSheetPickerViewController{
     func getDefaultAttibutePickerLabel()->[NSAttributedStringKey : Any]{
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
-        return [kCTFontAttributeName as NSAttributedStringKey:UIFont.systemFont(ofSize: 21),kCTForegroundColorAttributeName as NSAttributedStringKey:UIColor.black,kCTParagraphStyleAttributeName as NSAttributedStringKey:paragraphStyle]
+        return [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 21),NSAttributedStringKey.foregroundColor:UIColor.black,NSAttributedStringKey.paragraphStyle:paragraphStyle]
     }
     
     func getRowCountInComponent(components:NSArray,componentIndex:Int)->Int{
@@ -183,7 +183,6 @@ extension ActionSheetPickerViewController:UIPickerViewDelegate,UIPickerViewDataS
         if pickerFontAttribute == nil {
             pickerFontAttribute =  getDefaultAttibutePickerLabel()
         }
-        
         label.attributedText = NSMutableAttributedString(string: text,attributes: pickerFontAttribute)
         
         return label
