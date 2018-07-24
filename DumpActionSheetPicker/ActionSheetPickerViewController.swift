@@ -26,7 +26,7 @@ class ActionSheetPickerViewController: UIViewController {
     var doneButtonTitle:String!
     var selectRow:Int?
     var selectComponent:Int?
-    var pickerFontAttribute:[NSAttributedStringKey : Any]?
+    var pickerFontAttribute = [NSAttributedStringKey : Any]()
     
     var toolBarColor:UIColor = UIColor.darkGray
     var pickerViewColor:UIColor = UIColor.lightGray
@@ -180,9 +180,10 @@ extension ActionSheetPickerViewController:UIPickerViewDelegate,UIPickerViewDataS
         
         let text = getDataInArrayWithComponentAndRow(components: items ?? NSArray(), component: component, row: row)
         
-        if pickerFontAttribute == nil {
+        if pickerFontAttribute.isEmpty {
             pickerFontAttribute =  getDefaultAttibutePickerLabel()
         }
+        
         label.attributedText = NSMutableAttributedString(string: text,attributes: pickerFontAttribute)
         
         return label

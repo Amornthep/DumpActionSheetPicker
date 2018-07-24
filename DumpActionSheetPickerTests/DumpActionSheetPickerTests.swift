@@ -18,13 +18,13 @@ class DumpActionSheetPickerTests: XCTestCase {
     var doneCallback:((_ component:Int,_ row:Int) -> ())?
     var valueCallback:((_ component:Int,_ row:Int) -> ())?
     var actionSheetPicker: ActionSheetPicker!
-    var defaultAttibute:[NSAttributedStringKey : NSObject]!
+    var defaultAttibute = [NSAttributedStringKey : Any]()
     
     override func setUp() {
         super.setUp()
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
-        defaultAttibute = [kCTFontAttributeName as NSAttributedStringKey:UIFont.systemFont(ofSize: 21),kCTForegroundColorAttributeName as NSAttributedStringKey:UIColor.black,kCTParagraphStyleAttributeName as NSAttributedStringKey:paragraphStyle]
+        defaultAttibute = [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 21),NSAttributedStringKey.foregroundColor:UIColor.black,NSAttributedStringKey.paragraphStyle:paragraphStyle]
         let storyboard: UIStoryboard = UIStoryboard(name: "ActionSheetPicker", bundle: Bundle(for: ActionSheetPickerViewController.self))
         actionSheetPickerViewController = storyboard.instantiateViewController(withIdentifier: "ActionSheetPickerViewController") as! ActionSheetPickerViewController
         doneCallback = { component, row in }
@@ -85,7 +85,7 @@ class DumpActionSheetPickerTests: XCTestCase {
     
     func testGetDefaultAttibutePickerLabel(){
         let attibute = actionSheetPickerViewController.getDefaultAttibutePickerLabel()
-        XCTAssertEqual(defaultAttibute, attibute as? [NSAttributedStringKey : NSObject])
+        XCTAssertEqual(defaultAttibute.count, attibute.count)
     }
     
     func testSetToolBarColor(){
@@ -100,7 +100,7 @@ class DumpActionSheetPickerTests: XCTestCase {
     
     func testSetPickerAttributedText(){
         actionSheetPickerViewController.setPickerAttributedText(attributed: defaultAttibute)
-        XCTAssertEqual(actionSheetPickerViewController.pickerFontAttribute?.count,defaultAttibute.count)
+        XCTAssertEqual(actionSheetPickerViewController.pickerFontAttribute.count,defaultAttibute.count)
     }
     
     func testSetPickerHeight(){
