@@ -33,6 +33,8 @@ $ pod install
 
 ### Example
 ```swift
+import DumpActionSheetPicker
+
 let actionSheet = ActionSheetPicker(title: "Title", items: [["1","2"],["3","4","5"]], target: self) { (component, row) in
             print("\(component) \(row)")
         }
