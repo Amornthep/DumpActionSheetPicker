@@ -183,8 +183,7 @@ extension ActionSheetPickerViewController:UIPickerViewDelegate,UIPickerViewDataS
         if pickerFontAttribute.isEmpty {
             pickerFontAttribute =  getDefaultAttibutePickerLabel()
         }
-        let attributes = [NSAttributedStringKey.font:  UIFont(name: "Helvetica-Bold", size: 15.0)!, NSAttributedStringKey.foregroundColor: UIColor.white]
-        label.attributedText = NSMutableAttributedString(string: text,attributes: attributes)
+        label.attributedText = NSMutableAttributedString(string: text,attributes: pickerFontAttribute)
         
         return label
     }

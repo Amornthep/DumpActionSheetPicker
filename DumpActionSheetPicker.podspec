@@ -19,6 +19,6 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/Amornthep/DumpActionSheetPicker.git", :tag => "1.0.0" }
   s.source_files  = "DumpActionSheetPicker"
-  s.swift_version = "3.2" 
+  s.swift_version = "4.0" 
 
 end
