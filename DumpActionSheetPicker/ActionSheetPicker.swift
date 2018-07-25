@@ -12,7 +12,7 @@ open class ActionSheetPicker: NSObject {
     private var target:UIViewController!
     private var actionSheetVC:ActionSheetPickerViewController!
 
-    public init(title:String,items:NSArray,target:UIViewController,doneClick: @escaping (Int,Int) -> ()) {
+    public init(title:String,items:NSArray,target:UIViewController,doneClick: @escaping ([Int],[String]) -> ()) {
         super.init()
         
         let podBundle = Bundle(for: ActionSheetPickerViewController.self)
@@ -27,11 +27,23 @@ open class ActionSheetPicker: NSObject {
         self.target = target
     }
     
+    open func setBackgroundColor(color:UIColor){
+        self.actionSheetVC.backgroundColor = color
+    }
+    
     open func setPickerTextAttribute(attribute:[NSAttributedStringKey : Any]){
         self.actionSheetVC.setPickerAttributedText(attributed: attribute)
     }
     
-    open func onPickerValueChange(onChange:((_ component:Int,_ row:Int) -> ())?){
+    open func setInitialSelection(selected:[Int]){
+        self.actionSheetVC.setInitialSelection(selected: selected)
+    }
+    
+    open func setClickBackgroundEnable(isEnable:Bool){
+        self.actionSheetVC.setClickBackgroundEnable(isEnable: isEnable)
+    }
+    
+    open func onPickerValueChange(onChange:((_ index:[Int],_ value:[String]) -> ())?){
         self.actionSheetVC.setOnValueChange(valueChangeCallback: onChange)
     }
     

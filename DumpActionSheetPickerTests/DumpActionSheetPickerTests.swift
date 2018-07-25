@@ -15,20 +15,20 @@ class DumpActionSheetPickerTests: XCTestCase {
     let array2Test:NSArray = ["1","2"]
     let array3Test:NSArray = []
     var actionSheetPickerViewController: ActionSheetPickerViewController!
-    var doneCallback:((_ component:Int,_ row:Int) -> ())?
-    var valueCallback:((_ component:Int,_ row:Int) -> ())?
+    var doneCallback:((_ index:[Int],_ value:[String]) -> ())?
+    var valueCallback:((_ index:[Int],_ value:[String]) -> ())?
     var actionSheetPicker: ActionSheetPicker!
     var defaultAttibute = [NSAttributedStringKey : Any]()
     
     override func setUp() {
         super.setUp()
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .center
-        defaultAttibute = [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 21),NSAttributedStringKey.foregroundColor:UIColor.black,NSAttributedStringKey.paragraphStyle:paragraphStyle]
         let storyboard: UIStoryboard = UIStoryboard(name: "ActionSheetPicker", bundle: Bundle(for: ActionSheetPickerViewController.self))
         actionSheetPickerViewController = storyboard.instantiateViewController(withIdentifier: "ActionSheetPickerViewController") as! ActionSheetPickerViewController
         doneCallback = { component, row in }
         valueCallback = { component, row in }
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        defaultAttibute = [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 21),NSAttributedStringKey.foregroundColor:UIColor.black,NSAttributedStringKey.paragraphStyle:paragraphStyle]
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -51,41 +51,9 @@ class DumpActionSheetPickerTests: XCTestCase {
         }
     }
     
-    func testGetComponentCount(){
-        let count = actionSheetPickerViewController.getComponentCount(components: arrayTest)
-        XCTAssertEqual(2, count)
-        
-        let count2 = actionSheetPickerViewController.getComponentCount(components: array2Test)
-        XCTAssertEqual(1, count2)
-        
-        let count3 = actionSheetPickerViewController.getComponentCount(components: array3Test)
-        XCTAssertEqual(0, count3)
-    }
-    
-    func testGetDataInArrayWithComponentAndRow(){
-        let data = actionSheetPickerViewController.getDataInArrayWithComponentAndRow(components: arrayTest, component: 0, row: 1)
-        XCTAssertEqual("2", data)
-        
-        let data2 = actionSheetPickerViewController.getDataInArrayWithComponentAndRow(components: array2Test, component: 0, row: 1)
-        XCTAssertEqual("2", data2)
-    }
-    
-    func testGetRowCountInComponent(){
-        let data = actionSheetPickerViewController.getRowCountInComponent(components: arrayTest, componentIndex: 0)
-        XCTAssertEqual(2, data)
-        
-        let data2 = actionSheetPickerViewController.getRowCountInComponent(components: array2Test, componentIndex: 0)
-        XCTAssertEqual(2, data2)
-    }
-    
     func testSetDoneButtonClickCallBack(){
         actionSheetPickerViewController.setDoneCallback(doneCallback:doneCallback)
         XCTAssertNotNil(actionSheetPickerViewController.doneCallback)
-    }
-    
-    func testGetDefaultAttibutePickerLabel(){
-        let attibute = actionSheetPickerViewController.getDefaultAttibutePickerLabel()
-        XCTAssertEqual(defaultAttibute.count, attibute.count)
     }
     
     func testSetToolBarColor(){
@@ -124,4 +92,18 @@ class DumpActionSheetPickerTests: XCTestCase {
         XCTAssertEqual(actionSheetPickerViewController.actionSheetTitle,"Title")
     }
     
+    func testSetInitSelected(){
+        actionSheetPickerViewController.setInitialSelection(selected: [0,1])
+        XCTAssertEqual(actionSheetPickerViewController.selectIndex,[0,1])
+    }
+    
+    func testSetClickBackgroundEnable(){
+        actionSheetPickerViewController.setClickBackgroundEnable(isEnable: false)
+        XCTAssertEqual(actionSheetPickerViewController.clickBackGroundEnable,false)
+    }
+    
+    func testSetBackgroundColor(){
+        actionSheetPickerViewController.setBackgroundColor(color: UIColor.red)
+        XCTAssertEqual(actionSheetPickerViewController.backgroundColor,UIColor.red)
+    }
 }

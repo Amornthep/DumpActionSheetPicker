@@ -13,6 +13,8 @@
 		298F60392100AE7E00AC8E71 /* ActionSheetPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298F60362100AE7E00AC8E71 /* ActionSheetPicker.swift */; };
 		298F60402100AE9600AC8E71 /* ActionSheetPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 298F603F2100AE9600AC8E71 /* ActionSheetPicker.storyboard */; };
 		298F60902101DA2B00AC8E71 /* ActionSheetPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298F60382100AE7E00AC8E71 /* ActionSheetPickerViewController.swift */; };
+		29B56D2D2108752200D6E069 /* DumpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B56D2C2108752200D6E069 /* DumpHelper.swift */; };
+		29B56D2F2108762D00D6E069 /* DumpHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B56D2E2108762D00D6E069 /* DumpHelperTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,8 @@
 		298F60362100AE7E00AC8E71 /* ActionSheetPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetPicker.swift; sourceTree = "<group>"; };
 		298F60382100AE7E00AC8E71 /* ActionSheetPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetPickerViewController.swift; sourceTree = "<group>"; };
 		298F603F2100AE9600AC8E71 /* ActionSheetPicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ActionSheetPicker.storyboard; sourceTree = "<group>"; };
+		29B56D2C2108752200D6E069 /* DumpHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DumpHelper.swift; sourceTree = "<group>"; };
+		29B56D2E2108762D00D6E069 /* DumpHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DumpHelperTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 				298F601F2100AE3E00AC8E71 /* DumpActionSheetPicker.h */,
 				298F60362100AE7E00AC8E71 /* ActionSheetPicker.swift */,
 				298F60382100AE7E00AC8E71 /* ActionSheetPickerViewController.swift */,
+				29B56D2C2108752200D6E069 /* DumpHelper.swift */,
 				298F603F2100AE9600AC8E71 /* ActionSheetPicker.storyboard */,
 				298F60202100AE3E00AC8E71 /* Info.plist */,
 			);
@@ -90,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				298F602A2100AE3E00AC8E71 /* DumpActionSheetPickerTests.swift */,
+				29B56D2E2108762D00D6E069 /* DumpHelperTests.swift */,
 				298F602C2100AE3E00AC8E71 /* Info.plist */,
 			);
 			path = DumpActionSheetPickerTests;
@@ -205,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29B56D2D2108752200D6E069 /* DumpHelper.swift in Sources */,
 				298F60902101DA2B00AC8E71 /* ActionSheetPickerViewController.swift in Sources */,
 				298F60392100AE7E00AC8E71 /* ActionSheetPicker.swift in Sources */,
 			);
@@ -215,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				298F602B2100AE3E00AC8E71 /* DumpActionSheetPickerTests.swift in Sources */,
+				29B56D2F2108762D00D6E069 /* DumpHelperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
