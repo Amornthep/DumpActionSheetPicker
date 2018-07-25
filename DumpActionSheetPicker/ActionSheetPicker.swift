@@ -31,7 +31,7 @@ open class ActionSheetPicker: NSObject {
         self.actionSheetVC.backgroundColor = color
     }
     
-    open func setPickerTextAttribute(attribute:[NSAttributedStringKey : Any]){
+    open func setPickerAttribute(attribute:[NSAttributedStringKey : Any]){
         self.actionSheetVC.setPickerAttributedText(attributed: attribute)
     }
     

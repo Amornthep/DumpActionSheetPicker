@@ -106,4 +106,14 @@ class DumpActionSheetPickerTests: XCTestCase {
         actionSheetPickerViewController.setBackgroundColor(color: UIColor.red)
         XCTAssertEqual(actionSheetPickerViewController.backgroundColor,UIColor.red)
     }
+    
+    func testSetTitleAttributr(){
+        actionSheetPickerViewController.setTitleLabelAttributedString(attributed: NSMutableAttributedString(string: "Title"))
+        XCTAssertEqual(actionSheetPickerViewController.titleAttribute,NSMutableAttributedString(string: "Title"))
+    }
+    
+    func testSetDoneButtonAttributr(){
+        actionSheetPickerViewController.setDoneButtonAttributedText(attributed: NSMutableAttributedString(string: "Title"))
+        XCTAssertEqual(actionSheetPickerViewController.doneButtonAttribute,NSMutableAttributedString(string: "Title"))
+    }
 }

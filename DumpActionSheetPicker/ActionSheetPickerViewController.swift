@@ -28,6 +28,8 @@ class ActionSheetPickerViewController: UIViewController {
     var selectIndex = [Int]()
     var selectValue = [String]()
     var pickerFontAttribute = [NSAttributedStringKey : Any]()
+    var doneButtonAttribute:NSMutableAttributedString!
+    var titleAttribute:NSMutableAttributedString!
     
     var toolBarColor:UIColor = UIColor.darkGray
     var pickerViewColor:UIColor = UIColor.lightGray
@@ -47,6 +49,14 @@ class ActionSheetPickerViewController: UIViewController {
         self.toolBarView.backgroundColor = toolBarColor
         self.actionSheetView.backgroundColor = pickerViewColor
         self.backgroundButton.isEnabled = clickBackGroundEnable
+        
+        if let doneButtonAttribute = doneButtonAttribute{
+            self.doneButton.setAttributedTitle(doneButtonAttribute, for: .normal)
+        }
+        if let titleAttribute = titleAttribute{
+            self.titleLabel.attributedText = titleAttribute
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -99,7 +109,7 @@ extension ActionSheetPickerViewController{
     }
     
     func setTitleLabelAttributedString(attributed:NSMutableAttributedString){
-        self.titleLabel.attributedText = attributed
+        self.titleAttribute = attributed
     }
     
     func setPickerViewColor(color:UIColor){
@@ -119,7 +129,7 @@ extension ActionSheetPickerViewController{
     }
     
     func setDoneButtonAttributedText(attributed:NSMutableAttributedString){
-        self.doneButton.setAttributedTitle(attributed, for: .normal)
+        self.doneButtonAttribute = attributed
     }
     
     func setOnValueChange(valueChangeCallback:((_ index:[Int],_ value:[String]) -> ())?){
