@@ -35,8 +35,8 @@ $ pod install
 ```swift
 import DumpActionSheetPicker
 
-let actionSheet = ActionSheetPicker(title: "Title", items: [["1","2"],["3","4","5"]], target: self) { (component, row) in
-            print("\(component) \(row)")
+let actionSheet = ActionSheetPicker(title: "Title", items: [["1","2"],["3","4","5"],["3","4","5"]], target: self) { (index, value) in
+            print("\(index) \(value)")
         }
 actionSheet.show()
 ```
@@ -44,11 +44,17 @@ actionSheet.show()
 
 ### Setting
 ```swift
-public init(title:String,items:NSArray,target:UIViewController,doneClick: @escaping (Int,Int) -> ()) 
+init(title:String,items:NSArray,target:UIViewController,doneClick: @escaping ([Int],[String]) -> ())
 
+open func setBackgroundColor(color:UIColor)
+    
 open func setPickerTextAttribute(attribute:[NSAttributedStringKey : Any])
     
-open func onPickerValueChange(onChange:((_ component:Int,_ row:Int) -> ())?)
+open func setInitialSelection(selected:[Int])
+    
+open func setClickBackgroundEnable(isEnable:Bool)
+    
+open func onPickerValueChange(onChange:((_ index:[Int],_ value:[String]) -> ())?)
     
 open func setPickerHeight(height:CGFloat)
     
@@ -61,4 +67,6 @@ open func setPickerViewColor(color:UIColor)
 open func setDoneButtonTitle(title:String)
     
 open func setTitleLabelAttributedString(attributed:NSMutableAttributedString)
+    
+open func show()
 ```
