@@ -30,7 +30,7 @@ class ActionSheetPickerViewController: UIViewController {
     var pickerFontAttribute = [NSAttributedStringKey : Any]()
     var doneButtonAttribute:NSMutableAttributedString!
     var titleAttribute:NSMutableAttributedString!
-    
+    var pickerAttribute:NSMutableAttributedString!
     var toolBarColor:UIColor = UIColor.darkGray
     var pickerViewColor:UIColor = UIColor.lightGray
     var backgroundColor:UIColor = UIColor.clear
@@ -124,6 +124,10 @@ extension ActionSheetPickerViewController{
         self.pickerFontAttribute = attributed
     }
     
+    func setPickerAttributedText(attributed:NSMutableAttributedString){
+        self.pickerAttribute = attributed
+    }
+    
     func setDoneCallback(doneCallback:((_ index:[Int],_ value:[String]) -> ())?){
         self.doneCallback = doneCallback
     }
@@ -175,7 +179,9 @@ extension ActionSheetPickerViewController:UIPickerViewDelegate,UIPickerViewDataS
         
         let text = DumpHelper.getDataInArrayWithComponentAndRow(components: items ?? NSArray(), component: component, row: row)
         
-        if pickerFontAttribute.isEmpty {
+        if let pickerAttribute = pickerAttribute{
+            pickerFontAttribute = pickerAttribute.attributes(at: 0, effectiveRange: nil)
+        }else if pickerFontAttribute.isEmpty {
             pickerFontAttribute =  DumpHelper.getDefaultAttibutePickerLabel()
         }
         label.attributedText = NSMutableAttributedString(string: text,attributes: pickerFontAttribute)

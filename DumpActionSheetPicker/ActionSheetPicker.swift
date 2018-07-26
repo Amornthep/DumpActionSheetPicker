@@ -34,6 +34,10 @@ open class ActionSheetPicker: NSObject {
     open func setPickerAttribute(attribute:[NSAttributedStringKey : Any]){
         self.actionSheetVC.setPickerAttributedText(attributed: attribute)
     }
+
+    open func setPickerAttributed(attributed:NSMutableAttributedString){
+        self.actionSheetVC.setPickerAttributedText(attributed: attributed)
+    }
     
     open func setInitialSelection(selected:[Int]){
         self.actionSheetVC.setInitialSelection(selected: selected)
